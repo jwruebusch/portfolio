@@ -32,7 +32,6 @@ export class ContactFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.messageService.add({severity:'success', summary:'Success', detail:'Email sent successfully'});
     this.resetForm();
   }
   
