@@ -5,6 +5,10 @@
 html {
   font-family: 'Roboto', sans-serif;
   background-color: #e3e3f7;
+  
+  @media (max-width: 600px) {
+    font-size: 1.8rem;
+  }
 }
 
 /* Navigation bar styling */
