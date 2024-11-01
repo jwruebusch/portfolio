@@ -34,13 +34,13 @@ jobs:
         run: npm run build -- --configuration production --base-href="/portfolio/"
 
       - name: Duplicate index.html as 404.html for GitHub Pages routing
-        run: cp dist/portfolio/index.html dist/portfolio/404.html
+        run: cp dist/portfolio/browser/index.html dist/portfolio/browser/404.html
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/portfolio
-
+          path: ./dist/portfolio/browser  # Use the browser subdirectory
+          
   deploy:
     environment:
       name: github-pages
