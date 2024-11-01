@@ -1,0 +1,11 @@
+<p-menubar [model]="items" styleClass="gap-3">
+    <ng-template pTemplate="start">
+        <p-avatar shape="circle" label="JR" styleClass="bg-cyan-400"></p-avatar>
+    </ng-template>
+    <ng-template pTemplate="item" let-item>
+        <a [routerLink]="item.route">
+            <span [class]="item.icon" class="py-3 ml-2 mr-1"></span>
+            <span class="mr-2">{{item.label}}</span>
+        </a>
+    </ng-template>
+</p-menubar>
