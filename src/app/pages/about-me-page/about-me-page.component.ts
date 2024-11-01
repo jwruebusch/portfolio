@@ -7,9 +7,9 @@ import {CardModule} from "primeng/card";
     imports: [
         CardModule
     ],
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  templateUrl: './about-me-page.component.html',
+  styleUrl: './about-me-page.component.scss'
 })
-export class HomePageComponent {
+export class AboutMePageComponent {
 
 }
