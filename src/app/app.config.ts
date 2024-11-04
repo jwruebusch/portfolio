@@ -2,8 +2,8 @@ import {ApplicationConfig, importProvidersFrom, provideZoneChangeDetection} from
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {MessageService} from "primeng/api";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MessageService} from "primeng/api";
 
 export const appConfig: ApplicationConfig = {
   providers: [

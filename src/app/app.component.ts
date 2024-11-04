@@ -3,13 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import {NavComponent} from "./features/nav/nav.component";
 import {BackgroundComponent} from "./features/background/background.component";
 import {ToastModule} from "primeng/toast";
-import {MessageService} from "primeng/api";
+import {AlertService} from "./services/alert-service/alert.service";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavComponent, BackgroundComponent, ToastModule],
-  providers: [MessageService],
+  providers: [AlertService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
