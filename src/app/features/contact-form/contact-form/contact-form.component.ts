@@ -3,10 +3,11 @@ import {InputTextModule} from "primeng/inputtext";
 import {Button, ButtonDirective} from "primeng/button";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {Ripple} from "primeng/ripple";
-import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {ContactInfoForm} from "../../../models/contact-info-form";
-import { EmailServiceService } from '../../../services/email-service/email-service.service';
+import { EmailService } from '../../../services/email-service/email.service';
+import {AlertService} from "../../../services/alert-service/alert.service";
 import {MessageService} from "primeng/api";
 
 @Component({
@@ -27,8 +28,7 @@ import {MessageService} from "primeng/api";
 export class ContactFormComponent implements OnInit {
   contactForm: FormGroup<ContactInfoForm> | null = null;
   constructor(private fb: FormBuilder,
-              private emailService: EmailServiceService,
-              private messageService: MessageService) {
+              private emailService: EmailService) {
   }
 
   ngOnInit(): void {
@@ -37,22 +37,14 @@ export class ContactFormComponent implements OnInit {
   
   resetForm(): void {
     this.contactForm = this.fb.group({
-      name: '',
-      email: '',
-      message: ''
+      name: this.fb.control('', [Validators.required]),
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      message: this.fb.control('', [Validators.required])
     });
   }
   
   submitForm(): void {
-    this.emailService.sendEmail(this.contactForm?.value).then(
-        (_response) => {
-            this.resetForm();
-            this.messageService.add({severity:'success', summary:'Success', detail:'Email sent successfully'});
-        },
-        (_error) => {
-            this.messageService.add({severity:'error', summary:'Error', detail:'Failed to send email'});
-        }
-    );
+    this.emailService.sendEmail(this.contactForm?.value).subscribe(() => this.resetForm());
   }
 
 }

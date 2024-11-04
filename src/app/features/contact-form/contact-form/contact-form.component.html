@@ -1,19 +1,22 @@
 @if (contactForm) {
     <section [formGroup]="contactForm" class="grid gap-3 grid-cols-1 md:grid-cols-2">
         <div class="flex flex-col">
-            <label for="name">Name</label>
+            <label class="font-bold" for="name">Name<span class="font-normal text-red-500">*</span></label>
             <input pInputText formControlName="name" class="border p-1" id="name">
         </div>
         <div class="flex flex-col">
-            <label for="email">Email</label>
+            <label class="font-bold" for="email">Email<span class="font-normal text-red-500">*</span></label>
             <input pInputText formControlName="email" class="border p-1" id="email">
         </div>
         <div class="flex flex-col md:col-span-2">
-            <label for="message">Message</label>
+            <label class="font-bold" for="message">Message<span class="font-normal text-red-500">*</span></label>
             <textarea pInputTextarea formControlName="message" class="border p-1" rows="5" id="message"></textarea>
         </div>
         <div class="flex md:justify-start md:col-span-2">
-            <button pButton class="rounded border w-full py-1 px-3 bg-blue-500 text-gray-100 active:bg-blue-600 md:w-auto" label="Submit"
+            <button pButton
+                    class="rounded border w-full py-1 px-3 bg-blue-500 text-gray-100 active:bg-blue-600 md:w-auto"
+                    label="Submit"
+                    [disabled]="contactForm.invalid"
                     (click)="submitForm()"></button>
         </div>
     </section>
