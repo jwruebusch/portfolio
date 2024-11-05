@@ -9,7 +9,7 @@ import {AvatarModule} from "primeng/avatar";
   standalone: true,
   imports: [
     MenubarModule,
-    AvatarModule
+    AvatarModule,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'

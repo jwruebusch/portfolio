@@ -3,14 +3,26 @@
         <div class="flex flex-col">
             <label class="font-bold" for="name">Name<span class="font-normal text-red-500">*</span></label>
             <input pInputText formControlName="name" class="border p-1" id="name">
+            @if (contactForm.controls.name.invalid && !contactForm.controls.name.untouched) {
+                <p class="text-red-500">Field is required</p>
+            }
         </div>
         <div class="flex flex-col">
             <label class="font-bold" for="email">Email<span class="font-normal text-red-500">*</span></label>
             <input pInputText formControlName="email" class="border p-1" id="email">
+            @if (contactForm.controls.email.hasError('required') && !contactForm.controls.email.untouched) {
+                <p class="text-red-500">Field is required</p>
+            }
+            @if (contactForm.controls.email.hasError('email') && !contactForm.controls.email.untouched) {
+                <p class="text-red-500">Invalid email</p>
+            }
         </div>
         <div class="flex flex-col md:col-span-2">
             <label class="font-bold" for="message">Message<span class="font-normal text-red-500">*</span></label>
             <textarea pInputTextarea formControlName="message" class="border p-1" rows="5" id="message"></textarea>
+            @if (contactForm.controls.message.invalid && !contactForm.controls.message.untouched) {
+                <p class="text-red-500">Field is required</p>
+            }
         </div>
         <div class="flex md:justify-start md:col-span-2">
             <button pButton
