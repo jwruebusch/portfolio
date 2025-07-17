@@ -1,6 +1,9 @@
 <app-background />
 <p-toast></p-toast>
-<app-nav class="nav-bar" />
-<main class="justify-self-center w-11/12 md:w-3/5 pb-3">
-    <router-outlet class="block w-full" />
+<app-nav class="relative z-10"/>
+<main class="justify-self-center w-11/12 md:w-3/5 pb-3 flex flex-col gap-10">
+    <app-hero-section></app-hero-section>
+    <app-about-me></app-about-me>
+    <app-experience></app-experience>
+    <app-skills></app-skills>
 </main>

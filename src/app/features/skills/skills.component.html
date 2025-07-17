@@ -1,0 +1,51 @@
+<section id="skills">
+    <h2 class="text-4xl font-bold text-center bg-transparent text-white mb-5">Skills</h2>
+    <section id="skill-list" class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <p-card styleClass="bg-black/20 backdrop-blur text-white md:text-2xl
+                            border border-purple-900/30 rounded-xl hover:border-purple-500/50
+                            transition-all p-6">
+            <div class="text-xl font-bold text-purple-400">Frontend</div>
+            @for (skill of frontendSkills; track skill.name) {
+                <div class="skill text-xl flex flex-row justify-between mt-2 items-center">
+                    <div>{{skill.name}}</div>
+                    <div class="hidden md:flex w-16 h-2 bg-gray-700 rounded-full">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                             [style.width]="skill.proficiency + '%'"></div>
+                    </div>
+                    <div class="md:hidden">{{skill.proficiency}}%</div>
+                </div>
+            }
+        </p-card>
+        <p-card styleClass="bg-black/20 backdrop-blur text-white md:text-2xl
+                            border border-purple-900/30 rounded-xl hover:border-purple-500/50
+                            transition-all p-6">
+            <div class="text-xl font-bold text-purple-400">Backend</div>
+            @for (skill of backendSkills; track skill.name) {
+                <div class="skill text-xl flex flex-row justify-between mt-2 items-center">
+                    <div>{{skill.name}}</div>
+                    <div class="hidden md:flex w-16 h-2 bg-gray-700 rounded-full">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                             [style.width]="skill.proficiency + '%'"></div>
+                    </div>
+                    <div class="md:hidden">{{skill.proficiency}}%</div>
+                </div>
+            }
+
+        </p-card>
+        <p-card styleClass="bg-black/20 backdrop-blur text-white md:text-2xl
+                            border border-purple-900/30 rounded-xl hover:border-purple-500/50
+                            transition-all p-6">
+            <div class="text-xl font-bold text-purple-400">DevOps & Tools</div>
+            @for (skill of toolingSkills; track skill.name) {
+                <div class="skill text-xl flex flex-row justify-between mt-2 items-center">
+                    <div>{{skill.name}}</div>
+                    <div class="hidden md:flex w-16 h-2 bg-gray-700 rounded-full">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                             [style.width]="skill.proficiency + '%'"></div>
+                    </div>
+                    <div class="md:hidden">{{skill.proficiency}}%</div>
+                </div>
+            }
+        </p-card>
+    </section>
+</section>

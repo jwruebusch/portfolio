@@ -1,11 +1,16 @@
-<p-menubar [model]="items" styleClass="gap-3">
-    <ng-template pTemplate="start">
-        <p-avatar shape="circle" label="J" styleClass="bg-cyan-400"></p-avatar>
-    </ng-template>
-    <ng-template pTemplate="item" let-item>
-        <a [routerLink]="item.route" class="p-menuitem-link py-2">
-            <span [class]="item.icon" class="mr-1"></span>
-            <span class="mr-2">{{item.label}}</span>
-        </a>
-    </ng-template>
-</p-menubar>
+<nav class="text-white container mx-auto px-4 py-6 overflow-hidden">
+    <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold">Joshua Ruebusch</div>
+
+        <div class="space-x-8">
+            <a (click)="smoothScrollTo('about')" class="cursor-pointer hover:text-purple-400">About</a>
+            <a (click)="smoothScrollTo('experience')" class="cursor-pointer hover:text-purple-400">Experience</a>
+            <a (click)="smoothScrollTo('skills')" class="cursor-pointer hover:text-purple-400">Skills</a>
+            <a (click)="smoothScrollTo('contact')" class="cursor-pointer hover:text-purple-400">Contact</a>
+        </div>
+
+        <div>
+            <p-button class="border border-purple-500 rounded px-4 py-2" label="Resume PDF" [outlined]="true" icon="pi pi-download"></p-button>
+        </div>
+    </div>
+</nav>
