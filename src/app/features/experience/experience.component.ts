@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import {CardModule} from "primeng/card";
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-experience',
   standalone: true,
     imports: [
         CardModule
     ],
-  templateUrl: './about-me-page.component.html',
-  styleUrl: './about-me-page.component.scss'
+  templateUrl: './experience.component.html',
+  styleUrl: './experience.component.scss'
 })
-export class AboutMePageComponent {
+export class ExperienceComponent {
 
 }

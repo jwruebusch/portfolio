@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {MenubarModule} from "primeng/menubar";
-import {MenuItem} from "primeng/api";
-import {NAV_OPTIONS} from "./nav-options";
 import {AvatarModule} from "primeng/avatar";
+import {Button} from "primeng/button";
 
 @Component({
   selector: 'app-nav',
@@ -10,10 +9,13 @@ import {AvatarModule} from "primeng/avatar";
   imports: [
     MenubarModule,
     AvatarModule,
+    Button,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
 export class NavComponent {
-  items: MenuItem[] = NAV_OPTIONS;
+  smoothScrollTo(elementId: string): void {
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }
